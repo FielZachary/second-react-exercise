@@ -1,4 +1,4 @@
-import { Item } from "../entities/Item"
+import Item from "../entities/Item"
 import { ItemRepository } from "../repositories/ItemRepository"
 
 export default class ItemServiceImpl {
