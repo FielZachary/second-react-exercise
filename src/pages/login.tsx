@@ -4,9 +4,8 @@ import { Button, Card,Checkbox,Form, Input, Row } from 'antd';
 import { useRouter } from 'next/router'
 
 import { useAppDispatch } from "../app/redux/hooks"
-import { signIn } from "../app/redux/user/user.slice";
+import {signIn} from "../app/redux/user/user.slice";
 import User from "../domain/entities/User";
-import { firebase } from './index'
 
 const layout = {
     labelCol: { span: 8 },
@@ -25,14 +24,10 @@ export default function Login () {
     const [form] = Form.useForm();
 
     const onFinish = async (values: any) => {
-        await firebase.auth().signInWithEmailAndPassword(values.email, values.password)
-            .then((userCredential) => {
-                // Signed in
-                const currentUser = userCredential.user;
-                const user = new User(currentUser.uid, currentUser.email, true)
-                dispatch(signIn(user))
-                // ...
-            })
+
+        const newUser = new User(values.email, true)
+        newUser.password = values.password
+        await dispatch(signIn(newUser))
 
         router.push('/dashboard')
     };

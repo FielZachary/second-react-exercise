@@ -5,8 +5,10 @@ export default class User {
 
     isSignedIn: boolean
 
-    constructor(uid: string, email: string, isSignedIn: boolean) {
-        this.uid = uid
+    password: string
+
+    constructor(email: string, isSignedIn: boolean) {
+
         this.email = email
         this.isSignedIn = isSignedIn
     }

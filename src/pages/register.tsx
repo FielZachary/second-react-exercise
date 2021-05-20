@@ -4,9 +4,8 @@ import { Button, Card,Form, Input, Row } from 'antd';
 import {useRouter} from "next/router";
 
 import { useAppDispatch } from "../app/redux/hooks"
-import { signIn } from "../app/redux/user/user.slice";
+import { register } from "../app/redux/user/user.slice";
 import User from "../domain/entities/User";
-import { firebase } from './index'
 
 const tailLayout = {
     wrapperCol: { offset: 8, span: 10 },
@@ -21,14 +20,17 @@ export default function Register () {
     const [form] = Form.useForm();
 
     const onFinish = async (values: any) => {
-        await firebase.auth().createUserWithEmailAndPassword(values.email, values.password)
-            .then((userCredential) => {
-                // Signed in
-                const currentUser = userCredential.user;
-                const user = new User(currentUser.uid, currentUser.email, true)
-                dispatch(signIn(user))
-                // ...
-            })
+        // await firebase.auth().createUserWithEmailAndPassword(values.email, values.password)
+        //     .then((userCredential) => {
+        //         // Signed in
+        //         const currentUser = userCredential.user;
+        //         const user = new User(currentUser.uid, currentUser.email, true)
+        //         dispatch(signIn(user))
+        //         // ...
+        //     })
+        const newUser = new User(values.email, true)
+        newUser.password = values.password
+        await dispatch(register(newUser))
 
         router.push('/dashboard')
     };

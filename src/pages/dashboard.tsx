@@ -9,10 +9,10 @@ export default function Dashboard () {
     const user = useAppSelector((state) => state.users.User)
 
     useEffect(() => {
-        if (user.isSignedIn !== true) {
+        if (user.isSignedIn === false) {
             router.push('/landing')
         }
-    }, [])
+    }, [user])
 
 
     return (

@@ -11,6 +11,7 @@
     "deploy": "yarn run remove_console && yarn run lint && vercel deploy --prod"
   },
   "dependencies": {
+    "@ant-design/icons": "^4.6.2",
     "@reduxjs/toolkit": "^1.5.1",
     "@types/react-redux": "^7.1.16",
     "antd": "^4.15.6",
