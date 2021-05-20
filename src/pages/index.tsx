@@ -4,8 +4,8 @@
 // import "firebase/auth";
 //
 // import firebase from "firebase/app";
-import { useRouter } from 'next/router'
-import {useEffect} from "react";
+import { useRouter } from "next/router"
+import { useEffect } from "react"
 
 import { useAppSelector } from "../app/redux/hooks"
 
@@ -29,7 +29,6 @@ import { useAppSelector } from "../app/redux/hooks"
 // export { firebase }
 
 export default function Home() {
-
     const user = useAppSelector((state) => state.users.User)
     const router = useRouter()
     // const items = useAppSelector((state) => state.items.items)
@@ -40,15 +39,12 @@ export default function Home() {
     // }
 
     useEffect(() => {
-
         if (user.isSignedIn === false) {
-            router.push('/login')
+            router.push("/login")
         } else if (user.isSignedIn === true) {
-            console.log('index pusing user to dashboard')
-            router.push('/dashboard')
+            router.push("/dashboard")
         }
-    }, [user])
+    })
 
     return <div>Loading</div>
-
 }

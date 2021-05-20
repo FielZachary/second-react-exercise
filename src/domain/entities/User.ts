@@ -8,7 +8,6 @@ export default class User {
     password: string
 
     constructor(email: string, isSignedIn: boolean) {
-
         this.email = email
         this.isSignedIn = isSignedIn
     }

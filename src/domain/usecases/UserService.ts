@@ -1,5 +1,5 @@
-import User from "../entities/User";
-import { UserRepository } from "../repositories/UserRepository";
+import User from "../entities/User"
+import { UserRepository } from "../repositories/UserRepository"
 
 export default class UserService {
     UserRepo: UserRepository
@@ -20,14 +20,11 @@ export default class UserService {
         return this.UserRepo.LogOut()
     }
 
-    onAuthStateChange(user : User): User {
-
+    onAuthStateChange(user: User): User {
         return this.UserRepo.onAuthStateChange(user)
     }
 
     CleanState(): User {
-
         return this.UserRepo.CleanState()
     }
-
 }

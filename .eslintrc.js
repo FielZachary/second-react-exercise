@@ -45,7 +45,7 @@ module.exports = {
     "react/jsx-curly-brace-presence": 0,
     "no-useless-computed-key": "error",
     "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
+    "react-hooks/exhaustive-deps": "off",
     "import/extensions": "off",
     "react/jsx-props-no-spreading": "off",
     "react/require-default-props": "off",
